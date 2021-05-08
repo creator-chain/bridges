@@ -47,7 +47,7 @@ impl CliChain for Template {
 
 impl CliEncodeCall for Template {
 	fn max_extrinsic_size() -> u32 {
-		0
+		bp_template::max_extrinsic_size()
 	}
 
 	fn encode_call(call: &encode_call::Call) -> anyhow::Result<Self::Call> {
