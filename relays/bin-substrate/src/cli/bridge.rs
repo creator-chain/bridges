@@ -41,8 +41,8 @@ impl FullBridge {
 
 pub const RIALTO_TO_MILLAU_INDEX: u8 = 0;
 pub const MILLAU_TO_RIALTO_INDEX: u8 = 0;
+pub const MILLAU_TO_TEMPLATE_INDEX: u8 = 1;
 pub const TEMPLATE_TO_MILLAU_INDEX: u8 = 0;
-pub const MILLAU_TO_TEMPLATE_INDEX: u8 = 0;
 
 /// The macro allows executing bridge-specific code without going fully generic.
 ///
