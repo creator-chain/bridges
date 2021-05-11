@@ -119,10 +119,10 @@ impl messages::ThisChainWithMessages for Template {
 		.unwrap_or(u32::MAX);
 
 		MessageTransaction {
-			dispatch_weight: bp_millau::MAX_SINGLE_MESSAGE_DELIVERY_CONFIRMATION_TX_WEIGHT,
+			dispatch_weight: bp_template::MAX_SINGLE_MESSAGE_DELIVERY_CONFIRMATION_TX_WEIGHT,
 			size: inbound_data_size
 				.saturating_add(bp_millau::EXTRA_STORAGE_PROOF_SIZE)
-				.saturating_add(bp_millau::TX_EXTRA_BYTES),
+				.saturating_add(bp_template::TX_EXTRA_BYTES),
 		}
 	}
 
@@ -152,7 +152,7 @@ impl messages::ChainWithMessages for Millau {
 	type Weight = Weight;
 	type Balance = bp_millau::Balance;
 
-	type MessagesInstance = pallet_bridge_messages::Instance1;
+	type MessagesInstance = crate::WithMillauMessagesInstance;
 }
 
 impl messages::BridgedChainWithMessages for Millau {
