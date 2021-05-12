@@ -56,11 +56,11 @@ pub fn derive_account_from_millau_id(id: bp_runtime::SourceAccount<AccountId>) -
 }
 
 /// Number of extra bytes (excluding size of storage value itself) of storage proof, built at
-/// Rialto chain. This mostly depends on number of entries (and their density) in the storage trie.
+/// Template chain. This mostly depends on number of entries (and their density) in the storage trie.
 /// Some reserve is reserved to account future chain growth.
 pub const EXTRA_STORAGE_PROOF_SIZE: u32 = 1024;
 
-/// Number of bytes, included in the signed Rialto transaction apart from the encoded call itself.
+/// Number of bytes, included in the signed Template transaction apart from the encoded call itself.
 ///
 /// Can be computed by subtracting encoded call size from raw transaction size.
 pub const TX_EXTRA_BYTES: u32 = 103;
@@ -68,7 +68,7 @@ pub const TX_EXTRA_BYTES: u32 = 103;
 /// Maximal size (in bytes) of encoded (using `Encode::encode()`) account id.
 pub const MAXIMAL_ENCODED_ACCOUNT_ID_SIZE: u32 = 32;
 
-/// Maximal weight of single Rialto block.
+/// Maximal weight of single Template block.
 ///
 /// This represents two seconds of compute assuming a target block time of six seconds.
 pub const MAXIMUM_BLOCK_WEIGHT: Weight = 2 * WEIGHT_PER_SECOND;
@@ -86,7 +86,7 @@ pub const MAX_UNREWARDED_RELAYER_ENTRIES_AT_INBOUND_LANE: MessageNonce = 128;
 /// Maximal number of unconfirmed messages at inbound lane.
 pub const MAX_UNCONFIRMED_MESSAGES_AT_INBOUND_LANE: MessageNonce = 128;
 
-/// Weight of single regular message delivery transaction on Rialto chain.
+/// Weight of single regular message delivery transaction on Template chain.
 ///
 /// This value is a result of `pallet_bridge_messages::Pallet::receive_messages_proof_weight()` call
 /// for the case when single message of `pallet_bridge_messages::EXPECTED_DEFAULT_MESSAGE_LENGTH` bytes is delivered.
@@ -94,13 +94,13 @@ pub const MAX_UNCONFIRMED_MESSAGES_AT_INBOUND_LANE: MessageNonce = 128;
 /// possible future runtime upgrades.
 pub const DEFAULT_MESSAGE_DELIVERY_TX_WEIGHT: Weight = 1_000_000_000;
 
-/// Increase of delivery transaction weight on Rialto chain with every additional message byte.
+/// Increase of delivery transaction weight on Template chain with every additional message byte.
 ///
 /// This value is a result of `pallet_bridge_messages::WeightInfoExt::storage_proof_size_overhead(1)` call. The
 /// result then must be rounded up to account possible future runtime upgrades.
 pub const ADDITIONAL_MESSAGE_BYTE_DELIVERY_WEIGHT: Weight = 25_000;
 
-/// Maximal weight of single message delivery confirmation transaction on Rialto chain.
+/// Maximal weight of single message delivery confirmation transaction on Template chain.
 ///
 /// This value is a result of `pallet_bridge_messages::Pallet::receive_messages_delivery_proof` weight formula computation
 /// for the case when single message is confirmed. The result then must be rounded up to account possible future
