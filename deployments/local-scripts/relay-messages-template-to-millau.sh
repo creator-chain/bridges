@@ -8,7 +8,7 @@ set -xeu
 MILLAU_PORT="${MILLAU_PORT:-9945}"
 TEMPLATE_PORT="${TEMPLATE_PORT:-9944}"
 
-RUST_LOG=bridge=debug \
+RUST_LOG=bridge=trace \
 ./target/debug/substrate-relay relay-messages TemplateToMillau \
 	--lane 00000000 \
 	--source-host localhost \
