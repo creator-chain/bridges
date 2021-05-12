@@ -293,9 +293,9 @@ parameter_types! {
 		bp_template::MAX_UNREWARDED_RELAYER_ENTRIES_AT_INBOUND_LANE;
 	pub const MaxUnconfirmedMessagesAtInboundLane: bp_messages::MessageNonce =
 		bp_template::MAX_UNCONFIRMED_MESSAGES_AT_INBOUND_LANE;
-	// `IdentityFee` is used by Rialto => we may use weight directly
+	// `IdentityFee` is used by Template => we may use weight directly
 	pub const GetDeliveryConfirmationTransactionFee: Balance =
-		bp_millau::MAX_SINGLE_MESSAGE_DELIVERY_CONFIRMATION_TX_WEIGHT as _;
+		bp_template::MAX_SINGLE_MESSAGE_DELIVERY_CONFIRMATION_TX_WEIGHT as _;
 	pub const RootAccountForPayments: Option<AccountId> = None;
 }
 
