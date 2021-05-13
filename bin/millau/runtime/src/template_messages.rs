@@ -148,7 +148,7 @@ impl messages::ChainWithMessages for Template {
 	type Weight = Weight;
 	type Balance = bp_template::Balance;
 
-	type MessagesInstance = pallet_bridge_messages::DefaultInstance;
+	type MessagesInstance = crate::WithTemplateMessagesInstance;
 }
 
 impl messages::BridgedChainWithMessages for Template {
